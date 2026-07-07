@@ -7,7 +7,7 @@ const products = [
   { name: "Gold hoop pair", price: "£89", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80" },
   { name: "Overdyed tote", price: "£56", img: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=500&q=80" },
   { name: "Barrier repair serum", price: "£38", img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80" },
-  { name: "Wool throw", price: "£95", img: "https://images.unsplash.com/photo-1580301762395-83c8b9e6d8c8?auto=format&fit=crop&w=500&q=80" },
+  { name: "Wool throw", price: "£95", img: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80" },
 ];
 
 export default function Trending() {

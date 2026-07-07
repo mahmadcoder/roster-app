@@ -1,14 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "./Reveal";
-
-const products = [
-  { name: "Linen weekend set", price: "£128", img: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?auto=format&fit=crop&w=500&q=80" },
-  { name: "Ceramic pour-over", price: "£64", img: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=500&q=80" },
-  { name: "Gold hoop pair", price: "£89", img: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80" },
-  { name: "Overdyed tote", price: "£56", img: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&w=500&q=80" },
-  { name: "Barrier repair serum", price: "£38", img: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=500&q=80" },
-  { name: "Wool throw", price: "£95", img: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=500&q=80" },
-];
+import { products } from "@/lib/data";
 
 export default function Trending() {
   return (
@@ -37,7 +30,11 @@ export default function Trending() {
           className="grid grid-cols-2 gap-5 sm:grid-cols-3 lg:grid-cols-6"
         >
           {products.map((p) => (
-            <div key={p.name} className="group">
+            <Link
+              key={p.name}
+              href={p.href ?? "/discover"}
+              className="group"
+            >
               <div className="relative aspect-square w-full overflow-hidden rounded-lg border border-line">
                 <Image
                   src={p.img}
@@ -47,11 +44,12 @@ export default function Trending() {
                 />
               </div>
               <p className="mt-2 text-sm text-ink">{p.name}</p>
-              <p className="text-xs text-ink/50">{p.price}</p>
-            </div>
+              <p className="text-xs text-ink/50">&pound;{p.price}</p>
+            </Link>
           ))}
         </Reveal>
       </div>
     </section>
   );
 }
+

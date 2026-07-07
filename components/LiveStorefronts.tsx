@@ -1,28 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import Reveal from "./Reveal";
-
-const storefronts = [
-  {
-    handle: "@studio.editorial",
-    tag: "Home & Living",
-    img: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=700&q=80",
-  },
-  {
-    handle: "@lunaskin",
-    tag: "Beauty",
-    img: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=80",
-  },
-  {
-    handle: "@formandfold",
-    tag: "Fashion",
-    img: "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=700&q=80",
-  },
-  {
-    handle: "@rareandcut",
-    tag: "Jewellery",
-    img: "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=700&q=80",
-  },
-];
+import { storefronts } from "@/lib/data";
 
 export default function LiveStorefronts() {
   return (
@@ -49,8 +28,9 @@ export default function LiveStorefronts() {
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
           {storefronts.map((s) => (
-            <div
+            <Link
               key={s.handle}
+              href={s.href ?? "/creators"}
               className="group overflow-hidden rounded-xl border border-line bg-paper"
             >
               <div className="relative aspect-[4/5] w-full overflow-hidden">
@@ -67,10 +47,11 @@ export default function LiveStorefronts() {
                   {s.tag}
                 </p>
               </div>
-            </div>
+            </Link>
           ))}
         </Reveal>
       </div>
     </section>
   );
 }
+
